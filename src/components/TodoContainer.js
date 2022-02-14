@@ -5,8 +5,8 @@ import Header from './Header';
 import TodosList from './TodosList';
 
 class TodoContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       todos: [
         {
@@ -28,8 +28,21 @@ class TodoContainer extends Component {
     };
   }
 
-  handleChange = (id) => {
-    console.log('clicked', id);
+  handleChange = (todoID) => {
+    this.setState((prevTodo) => ({
+      todos: prevTodo.todos.map((todo) => {
+        if (todo.id === todoID) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return todo;
+      }),
+    }));
+  };
+
+  delTodoHandler = (id) => {
+    this.setState((prevTodo) => ({
+      todos: prevTodo.todos.filter((todo) => todo.id !== id),
+    }));
   };
 
   render() {
@@ -38,7 +51,11 @@ class TodoContainer extends Component {
     return (
       <>
         <Header />
-        <TodosList todos={todos} changeHandler={this.handleChange} />
+        <TodosList
+          todos={todos}
+          changeHandler={this.handleChange}
+          deleteHandler={this.delTodoHandler}
+        />
       </>
     );
   }
