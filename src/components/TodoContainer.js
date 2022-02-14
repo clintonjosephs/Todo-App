@@ -28,13 +28,17 @@ class TodoContainer extends Component {
     };
   }
 
+  handleChange = (id) => {
+    console.log('clicked', id);
+  };
+
   render() {
     const { todos } = this.state;
 
     return (
       <>
         <Header />
-        <TodosList todos={todos} />
+        <TodosList todos={todos} changeHandler={this.handleChange} />
       </>
     );
   }
