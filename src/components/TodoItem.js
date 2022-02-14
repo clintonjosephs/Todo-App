@@ -33,7 +33,7 @@ TodoItem.propTypes = {
   title: propTypes.string.isRequired,
   completed: propTypes.bool.isRequired,
   changeHandler: propTypes.func.isRequired,
-  todoID: propTypes.number.isRequired,
+  todoID: propTypes.string.isRequired,
   deleteHandler: propTypes.func.isRequired,
 };
 

@@ -1,6 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import TodosList from './TodosList';
 import InputTodo from './InputTodo';
@@ -11,17 +12,17 @@ class TodoContainer extends Component {
     this.state = {
       todos: [
         {
-          id: 1,
+          id: '1',
           title: 'Setup development environment',
           completed: true,
         },
         {
-          id: 2,
+          id: '2',
           title: 'Develop website and add content',
           completed: false,
         },
         {
-          id: 3,
+          id: '3',
           title: 'Deploy to live server',
           completed: false,
         },
@@ -48,12 +49,11 @@ class TodoContainer extends Component {
 
   addTodoItemHandler = (title) => {
     const newTodo = {
-      id: 4,
+      id: uuidv4(),
       title,
       completed: false,
     };
     this.setState((prevTodo) => ({ todos: [...prevTodo.todos, newTodo] }));
-    console.log(title, 'from todo container');
   };
 
   render() {
