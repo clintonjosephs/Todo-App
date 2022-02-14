@@ -51,9 +51,10 @@ class InputTodo extends Component {
     return (
       <>
         <Message display={errorDisplay} message={message} />
-        <form onSubmit={this.todoSubmitHandler}>
+        <form onSubmit={this.todoSubmitHandler} className="form-container">
           <input
             type="text"
+            className="input-text"
             name="title"
             placeholder="Add Todo ..."
             value={title}
