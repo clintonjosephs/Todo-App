@@ -6,6 +6,7 @@ class InputTodo extends Component {
     super(props);
     this.state = {
       title: '',
+      errorDisplay: false,
     };
   }
 
@@ -16,11 +17,18 @@ class InputTodo extends Component {
   todoSubmitHandler = (event) => {
     event.preventDefault();
     const { title } = this.state;
-    const { addTodoItemHandler } = this.props;
-    addTodoItemHandler(title);
-    this.setState({
-      title: '',
-    });
+    if (title.trim()) {
+      const { addTodoItemHandler } = this.props;
+      addTodoItemHandler(title);
+      this.setState({
+        title: '',
+        errorDisplay: false,
+      });
+    } else {
+      this.setState({
+        errorDisplay: true,
+      });
+    }
   };
 
   render() {
