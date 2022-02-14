@@ -67,6 +67,26 @@ body {
 .active-link {
     color: black;
     text-decoration: underline;
-  }
+}
+
+.error {
+    color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    text-align: center;
+    background: coral;
+}
+
+.success {
+    color: white;
+    border: 1px solid green;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    text-align: center;
+    background: green;
+}
 
   

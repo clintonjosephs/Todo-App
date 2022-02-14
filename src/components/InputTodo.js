@@ -34,6 +34,7 @@ const InputTodo = (props) => {
         title: '',
         errorDisplay: 'block',
         message: 'Item added to list successfully',
+        cssClass: 'success',
       });
 
       setTimeout(() => {
