@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
 import propTypes from 'prop-types';
 import Message from './Message';
 
@@ -59,7 +60,9 @@ const InputTodo = (props) => {
           value={title}
           onChange={titleChangeHandler}
         />
-        <button type="submit">Submit</button>
+        <button type="submit">
+          <FaPlusCircle />
+        </button>
       </form>
     </>
   );

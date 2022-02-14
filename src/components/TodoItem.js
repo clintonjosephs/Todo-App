@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaTrash } from 'react-icons/fa';
 import propTypes from 'prop-types';
 import styles from './styles/TodoItem.module.css';
 
@@ -62,7 +63,7 @@ const TodoItem = (props) => {
           onChange={checkBoxChangeHandler}
         />
         <button type="button" onClick={deleteToDoItemHandler}>
-          Delete
+          <FaTrash />
         </button>
         <span style={completed ? completedStyle : null}>{title}</span>
       </div>
