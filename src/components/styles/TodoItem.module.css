@@ -23,7 +23,13 @@
 }
 
 .textInput {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #dfdfdf;
-  }
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfdfdf;
+}
+
+.input-submit svg {
+  color: darkcyan;
+  font-size: 20px;
+  margin-top: 2px;
+}

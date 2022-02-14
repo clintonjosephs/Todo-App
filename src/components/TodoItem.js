@@ -63,7 +63,7 @@ const TodoItem = (props) => {
           onChange={checkBoxChangeHandler}
         />
         <button type="button" onClick={deleteToDoItemHandler}>
-          <FaTrash />
+          <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
         </button>
         <span style={completed ? completedStyle : null}>{title}</span>
       </div>
