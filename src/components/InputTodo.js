@@ -14,7 +14,7 @@ const InputTodo = (props) => {
   const titleChangeHandler = (event) => {
     setState((prevState) => ({
       ...prevState,
-      title: event.target.value,
+      [event.target.name]: event.target.value,
       errorDisplay: 'none',
     }));
   };
@@ -33,15 +33,17 @@ const InputTodo = (props) => {
       });
 
       setTimeout(() => {
-        setState({
+        setState((prevState) => ({
+          ...prevState,
           errorDisplay: 'none',
-        });
+        }));
       }, 2000);
     } else {
-      setState({
+      setState((prevState) => ({
+        ...prevState,
         errorDisplay: 'block',
         message: 'Please, type-in a todo item',
-      });
+      }));
     }
   };
 
