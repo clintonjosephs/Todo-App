@@ -56,6 +56,20 @@ class TodoContainer extends Component {
     this.setState((prevTodo) => ({ todos: [...prevTodo.todos, newTodo] }));
   };
 
+  setUpdateHandler = (updatedTitle, id) => {
+    this.setState((prevTodo) => ({
+      todos: prevTodo.todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            title: updatedTitle,
+          };
+        }
+        return todo;
+      }),
+    }));
+  };
+
   render() {
     const { todos } = this.state;
 
@@ -68,6 +82,7 @@ class TodoContainer extends Component {
             todos={todos}
             changeHandler={this.handleChange}
             deleteHandler={this.delTodoHandler}
+            setUpdateHandler={this.setUpdateHandler}
           />
         </div>
       </div>

@@ -9,7 +9,9 @@ class TodoList extends Component {
   }
 
   render() {
-    const { todos, changeHandler, deleteHandler } = this.props;
+    const {
+      todos, changeHandler, deleteHandler, setUpdateHandler,
+    } = this.props;
     return (
       <ul>
         {todos.map(({ id, title, completed }) => (
@@ -20,6 +22,7 @@ class TodoList extends Component {
             todoID={id}
             changeHandler={changeHandler}
             deleteHandler={deleteHandler}
+            setUpdateHandler={setUpdateHandler}
           />
         ))}
       </ul>
@@ -31,6 +34,7 @@ TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object).isRequired,
   changeHandler: PropTypes.func.isRequired,
   deleteHandler: PropTypes.func.isRequired,
+  setUpdateHandler: PropTypes.func.isRequired,
 };
 
 export default TodoList;
