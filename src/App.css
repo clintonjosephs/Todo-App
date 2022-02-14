@@ -30,7 +30,6 @@ body {
   width: 100%;
   margin-bottom: 20px;
   display: flex;
-  border-radius: calc(0.5 * 100px);
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
   justify-content: space-evenly;
 }
@@ -38,10 +37,9 @@ body {
 .input-text {
   font-size: 1rem;
   font-weight: 400;
-  width: 85%;
+  width: 90%;
   padding-right: 5px;
   padding-left: 10px;
-  border-radius: calc(0.5 * 100px);
 }
 
 .input-text::placeholder {
@@ -70,23 +68,25 @@ body {
 }
 
 .error {
-    color: white;
+    color: red;
     border: 1px solid red;
     border-radius: 5px;
     margin-bottom: 15px;
     padding: 10px;
     text-align: center;
-    background: coral;
+    background: #fff;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
 }
 
 .success {
-    color: white;
-    border: 1px solid green;
+    color: green;
+    border: 1px solid rgb(223, 243, 243);
     border-radius: 5px;
     margin-bottom: 15px;
     padding: 10px;
     text-align: center;
-    background: green;
+    background: #fff;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
 }
 
 .navBar {

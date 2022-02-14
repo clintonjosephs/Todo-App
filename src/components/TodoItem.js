@@ -39,8 +39,7 @@ const TodoItem = (props) => {
 
   const completedStyle = {
     fontStyle: 'italic',
-    color: '#595959',
-    opacity: 0.4,
+    color: '#ffff',
     textDecoration: 'line-through',
   };
 
