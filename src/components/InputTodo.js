@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import ErrorMessage from './ErrorMessage';
+import Message from './Message';
 
 class InputTodo extends Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class InputTodo extends Component {
     const { title, errorDisplay, message } = this.state;
     return (
       <>
-        <ErrorMessage display={errorDisplay} message={message} />
+        <Message display={errorDisplay} message={message} />
         <form onSubmit={this.todoSubmitHandler}>
           <input
             type="text"
