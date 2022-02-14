@@ -32,8 +32,8 @@ const InputTodo = (props) => {
 
       setState({
         title: '',
-        errorDisplay: 'block',
-        message: 'Item added to list successfully',
+        errorDisplay: 'none',
+        message: '',
         cssClass: 'success',
       });
 
