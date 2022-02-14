@@ -63,3 +63,10 @@ body {
   outline: none;
   border: none;
 }
+
+.active-link {
+    color: black;
+    text-decoration: underline;
+  }
+
+  

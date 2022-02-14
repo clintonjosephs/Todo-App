@@ -8,9 +8,12 @@ const InputTodo = (props) => {
     title: '',
     errorDisplay: 'none',
     message: '',
+    cssClass: 'success',
   });
 
-  const { title, errorDisplay, message } = stateData;
+  const {
+    title, errorDisplay, message, cssClass,
+  } = stateData;
 
   const titleChangeHandler = (event) => {
     setState((prevState) => ({
@@ -44,13 +47,14 @@ const InputTodo = (props) => {
         ...prevState,
         errorDisplay: 'block',
         message: 'Please, type-in a todo item',
+        cssClass: 'error',
       }));
     }
   };
 
   return (
     <>
-      <Message display={errorDisplay} message={message} />
+      <Message display={errorDisplay} message={message} cssClass={cssClass} />
       <form onSubmit={todoSubmitHandler} className="form-container">
         <input
           type="text"
