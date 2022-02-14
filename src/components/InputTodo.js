@@ -1,71 +1,67 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import Message from './Message';
 
-class InputTodo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      errorDisplay: 'none',
-      message: '',
-    };
-  }
+const InputTodo = (props) => {
+  const [stateData, setState] = useState({
+    title: '',
+    errorDisplay: 'none',
+    message: '',
+  });
 
-  titleChangeHandler = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
+  const { title, errorDisplay, message } = stateData;
+
+  const titleChangeHandler = (event) => {
+    setState((prevState) => ({
+      ...prevState,
+      title: event.target.value,
       errorDisplay: 'none',
-    });
+    }));
   };
 
-  todoSubmitHandler = (event) => {
+  const todoSubmitHandler = (event) => {
     event.preventDefault();
-    const { title } = this.state;
     if (title.trim()) {
-      const { addTodoItemHandler } = this.props;
+      const { addTodoItemHandler } = props;
 
       addTodoItemHandler(title);
 
-      this.setState({
+      setState({
         title: '',
         errorDisplay: 'block',
         message: 'Item added to list successfully',
       });
 
       setTimeout(() => {
-        this.setState({
+        setState({
           errorDisplay: 'none',
         });
       }, 2000);
     } else {
-      this.setState({
+      setState({
         errorDisplay: 'block',
         message: 'Please, type-in a todo item',
       });
     }
   };
 
-  render() {
-    const { title, errorDisplay, message } = this.state;
-    return (
-      <>
-        <Message display={errorDisplay} message={message} />
-        <form onSubmit={this.todoSubmitHandler} className="form-container">
-          <input
-            type="text"
-            className="input-text"
-            name="title"
-            placeholder="Add Todo ..."
-            value={title}
-            onChange={this.titleChangeHandler}
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Message display={errorDisplay} message={message} />
+      <form onSubmit={todoSubmitHandler} className="form-container">
+        <input
+          type="text"
+          className="input-text"
+          name="title"
+          placeholder="Add Todo ..."
+          value={title}
+          onChange={titleChangeHandler}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </>
+  );
+};
 
 InputTodo.propTypes = {
   addTodoItemHandler: propTypes.func.isRequired,
