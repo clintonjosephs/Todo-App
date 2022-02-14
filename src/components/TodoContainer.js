@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import TodosList from './TodosList';
 import InputTodo from './InputTodo';
+import Storage from './Data/Storage';
 
 class TodoContainer extends Component {
   constructor(props) {
@@ -13,9 +14,16 @@ class TodoContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
-      .then((response) => response.json())
-      .then((data) => this.setState({ todos: data }));
+    this.setState({
+      todos: Storage.getData(),
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { todos } = this.state;
+    if (prevState.todos !== todos) {
+      Storage.setData(todos);
+    }
   }
 
   handleChange = (todoID) => {
@@ -66,12 +74,16 @@ class TodoContainer extends Component {
         <div className="inner">
           <Header />
           <InputTodo addTodoItemHandler={this.addTodoItemHandler} />
-          <TodosList
-            todos={todos}
-            changeHandler={this.handleChange}
-            deleteHandler={this.delTodoHandler}
-            setUpdateHandler={this.setUpdateHandler}
-          />
+          {todos.length > 0 ? (
+            <TodosList
+              todos={todos}
+              changeHandler={this.handleChange}
+              deleteHandler={this.delTodoHandler}
+              setUpdateHandler={this.setUpdateHandler}
+            />
+          ) : (
+            <h3>No items added to list</h3>
+          )}
         </div>
       </div>
     );
