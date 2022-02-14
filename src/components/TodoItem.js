@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import { BsCheckLg } from 'react-icons/bs';
 import propTypes from 'prop-types';
 import styles from './styles/TodoItem.module.css';
 
@@ -55,12 +56,19 @@ const TodoItem = (props) => {
   return (
     <li className={styles.item}>
       <div onDoubleClick={handleEditing} style={viewMode}>
-        <input
-          type="checkbox"
-          className={styles.checkbox}
-          checked={completed}
-          onChange={checkBoxChangeHandler}
-        />
+        {!completed ? (
+          <input
+            type="checkbox"
+            className={styles.checkbox}
+            checked={completed}
+            onChange={checkBoxChangeHandler}
+          />
+        ) : (
+          <BsCheckLg
+            onClick={checkBoxChangeHandler}
+            style={{ marginRight: '20px', color: 'orange' }}
+          />
+        )}
         <button type="button" onClick={deleteToDoItemHandler}>
           <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
         </button>
