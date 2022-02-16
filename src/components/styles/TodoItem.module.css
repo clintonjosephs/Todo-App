@@ -1,0 +1,38 @@
+.item {
+  font-size: 1.2rem;
+  list-style-type: none;
+  padding: 17px 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+  border-bottom: solid 1px rgb(223, 243, 243);
+}
+
+.checkbox {
+  margin-right: 15px;
+}
+
+.item button {
+  font-size: 13px;
+  background: darkcyan;
+  border: none;
+  cursor: pointer;
+  float: right;
+  outline: none;
+  height: 50px;
+  width: 50px;
+  margin: -10px 0 0 10px;
+}
+
+.textInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 1px solid #dfdfdf;
+}
+
+.input-submit svg {
+  color: darkcyan;
+  font-size: 20px;
+  margin-top: 2px;
+}
