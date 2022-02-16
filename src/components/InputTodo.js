@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import Message from './Message';
 
 const InputTodo = (props) => {
-  const [stateData, setState] = useState({
+  const [stateData, setData] = useState({
     title: '',
     errorDisplay: 'none',
     message: '',
@@ -16,7 +16,7 @@ const InputTodo = (props) => {
   } = stateData;
 
   const titleChangeHandler = (event) => {
-    setState((prevState) => ({
+    setData((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
       errorDisplay: 'none',
@@ -30,7 +30,7 @@ const InputTodo = (props) => {
 
       addTodoItemHandler(title);
 
-      setState({
+      setData({
         title: '',
         errorDisplay: 'none',
         message: '',
@@ -38,13 +38,13 @@ const InputTodo = (props) => {
       });
 
       setTimeout(() => {
-        setState((prevState) => ({
+        setData((prevState) => ({
           ...prevState,
           errorDisplay: 'none',
         }));
       }, 2000);
     } else {
-      setState((prevState) => ({
+      setData((prevState) => ({
         ...prevState,
         errorDisplay: 'block',
         message: 'Please, type-in a todo item',

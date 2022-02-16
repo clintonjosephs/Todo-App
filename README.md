@@ -58,7 +58,7 @@ $ npm start
 $ runs on http://localhost:3001/
 ```
 
-## Authors
+## Author
 
 👤 **Clinton Mbonu**
 
